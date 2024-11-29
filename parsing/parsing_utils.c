@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 16:07:31 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/11/29 16:52:14 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:00:46 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	check_repeat(char **matriz)
 
 	i = 0;
 	j = i + 1;
-	while(matriz)
+	while(matriz[i])
 	{
-		
+		ft_strncmp()
 	}
 }
