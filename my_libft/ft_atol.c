@@ -6,17 +6,17 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:04:33 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/11/29 17:07:02 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/11/29 17:24:26 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * @brief Converts a string to an integer: ASCII to integer
+ * @brief Converts a string to a long: ASCII to long
  * 
  * @param str A pointer to the string to be converted
- * @return Returns the converted integer value
+ * @return Returns the converted long integer value
  */
 long	ft_atol(const char *str)
 {
