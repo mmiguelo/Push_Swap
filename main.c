@@ -6,13 +6,13 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/11/29 16:40:00 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/11/29 18:14:34 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	fill_list(char **matriz, t_stack **stack)
+static void	fill_list(char **matriz, t_stack **stack_a)
 {
 	int	i;
 	long nbr;
@@ -20,7 +20,8 @@ static void	fill_list(char **matriz, t_stack **stack)
 	i = 0;
 	while (matriz[i])
 	{
-		nbr = atoi
+		nbr = ft_atol(matriz[i]);
+		if (check_limits(matriz[i], nbr, stack_a) == 0)
 	}
 }
 
@@ -40,6 +41,7 @@ int main(int ac, char **av)
 		mtr = av + 1;
 	if (check_numbers_and_size(mtr))
 		fill_list(mtr, &stack_a);
+	
 }
 
 av[1];

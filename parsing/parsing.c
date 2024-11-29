@@ -1,4 +1,4 @@
-- verificar se o numero de argumentos e inferior a dois -> ./push_swap
+/* - verificar se o numero de argumentos e inferior a dois -> ./push_swap
 		se sim, retornar 0
 -   verificar se o numero de argumentos e dois ./push_swap "435 345 67"
 		se sim, se fazer um split
@@ -20,8 +20,9 @@
 		verificar se tem numeros repetidos
 			se sim, retornar ERROR e \n
 		verificar se estao ordenados
-			se sim retornar 0
+			se sim retornar 0 */
 
+#include "../push_swap.h"
 
 int	check_numbers_and_size(char **matriz)
 {
@@ -36,7 +37,31 @@ int	check_numbers_and_size(char **matriz)
 			return (0);
 		i++;
 	}
-	if(check_repeat(matriz) == 0)
-		return (0);
 	return (1);
+}
+
+int	check_repeat(char **matriz)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while(matriz[i])
+	{
+		j = i + 1;
+		while (matriz[j])
+		{
+			if(ft_strcmp(matriz[i], matriz[j]) == 0)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return(1);
+}
+
+int check_limits(char *matriz, long nbr,t_stack stack_a)
+{
+	if (nbr > INT_MAX || nbr < INT_MIN)
+		return (0);
 }
