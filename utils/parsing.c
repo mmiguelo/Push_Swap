@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 12:28:49 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/02 13:49:40 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,11 @@ int	check_errors(char **matriz, long nbr, t_stack **stack_a)
 	return (1);
 }
 
-void	handle_error(char **matriz, t_stack **stack_a)
-{
-	
-}
 void	clean_matriz(char **matriz)
 {
 	int	i;
 
-	if (matriz && *matriz)
+	if (*matriz)
 	{
 		i = 0;
 		while (matriz[i])
@@ -73,15 +69,16 @@ void	clean_matriz(char **matriz)
 			free(matriz[i]);
 			i++;
 		}
-		free(matriz);
 	}
+	free(matriz);
 }
 
 void	clean_stack(t_stack **stack_a)
 {
-	if (stack_a || *stack_a)
+	t_stack	*temp;
+
+	if (*stack_a)
 	{
-		t_stack *temp;
 		while (*stack_a)
 		{
 			temp = *stack_a;
@@ -90,6 +87,15 @@ void	clean_stack(t_stack **stack_a)
 			free(temp->index);
 			free(temp);
 		}
-		free(stack_a);
 	}
+	free(stack_a);
+}
+
+void	handle_error(char **matriz, t_stack **stack_a)
+{
+	if (matriz)
+		clean_matriz(matriz);
+	if (stack_a)
+		clean_stack(stack_a);
+	exit (1);
 }

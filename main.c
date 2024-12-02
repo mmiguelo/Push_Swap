@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 12:22:26 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/02 15:17:46 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static void	fill_list(char **matriz, t_stack **stack_a)
 		{
 			write(1, "Error\n", 6);
 			handle_error(matriz, stack_a);
-			exit (1);
 		}
-		
+		stack_add_back(stack_a, ft_lstnew(nbr, i));
+		i++;
 	}
 }
 
