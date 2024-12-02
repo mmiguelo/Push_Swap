@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 16:07:31 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/11/29 18:07:03 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:33:31 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	ft_strisnum(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(str[0] == '-' || str[0] == '+')
+	if (str[0] == '-' || str[0] == '+')
 		i++;
 	while (str[i])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (ft_isdigit(str[i] == 0))
 			return (0);
 		i++;
 	}
