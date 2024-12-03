@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:20 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 15:52:01 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:54:45 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ void	swap_elemets(t_stack **stack)
 	temp = stack;
 	if(*stack == NULL || ft_lstsize(*stack) == 1)
 		return ;
+	stack = *0x2;
+	0x1->next = *0x2->next;
+	*0x2->next = temp;
 	
 }
 

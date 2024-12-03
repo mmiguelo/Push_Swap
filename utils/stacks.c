@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:54:51 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 15:58:53 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:58:02 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_stack	*ft_lstnew(int *number, int i)
 	new->number = number;
 	new->index = i;
 	new->next = NULL;
-	new->prev = NULL;
 	return (new);
 }
 
@@ -70,5 +69,4 @@ void	stack_add_back(t_stack **stack_a, t_stack *new)
 	}
 	temp = ft_lstlast(*stack_a);
 	temp->next = new;
-	new->prev = temp;
 }

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 15:53:41 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 09:56:32 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ typedef struct s_stack
 	int				number;
 	int				index;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }	t_stack;
 
 /*=============================================================================#
