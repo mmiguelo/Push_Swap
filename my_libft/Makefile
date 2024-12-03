@@ -27,6 +27,7 @@ RM = rm -f
 
 SRCS =	ft_bzero.c
 SRCS +=	ft_atoi.c
+SRCS += ft_atol.c
 SRCS +=	ft_calloc.c
 SRCS +=	ft_isalnum.c
 SRCS +=	ft_isalpha.c
@@ -52,6 +53,7 @@ SRCS +=	ft_strlcat.c
 SRCS +=	ft_strlcpy.c
 SRCS +=	ft_strlen.c
 SRCS +=	ft_strmapi.c
+SRCS += ft_strcmp.c
 SRCS +=	ft_strncmp.c
 SRCS +=	ft_strnstr.c
 SRCS +=	ft_strrchr.c

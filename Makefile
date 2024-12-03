@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/03 12:17:45 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/03 13:53:52 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,14 @@ LIBFT = my_libft/libft.a
 #                                    FILES                                     #
 #==============================================================================#
 
-SRCS	= utils/parsing_utils.c
+SRCS	= main.c
+SRCS	+= utils/parsing_utils.c
 SRCS	+= utils/parsing.c
 SRCS	+= utils/stacks.c
-SRCS	+= commands/swap.c
-SRCS	+= commands/push.c
-SRCS	+= commands/rotate.c
-SRCS	+= commands/reverse_rotate.c
+#SRCS	+= commands/swap.c
+#SRCS	+= commands/push.c
+#SRCS	+= commands/rotate.c
+#SRCS	+= commands/reverse_rotate.c
 
 OBJS = $(SRCS:%.c=%.o)
 

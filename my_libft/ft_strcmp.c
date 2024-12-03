@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 17:09:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/11/29 17:23:37 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:48:12 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @param s2 Pointer to the second string.
  * @return Returns an int less than, equal to, or greater than zero.
  */
-int	ft_strncmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 

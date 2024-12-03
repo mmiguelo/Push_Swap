@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/03 12:39:31 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:43:53 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,11 @@ int	check_errors(char **matriz, long nbr)
 	i = 0;
 	while (matriz[i])
 	{
-		if ((ft_strisnum(matriz[i]) == 0) || (ft_strlen(matriz[i]) > 11))
-			return (0);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			return (0);
 		if (check_repeat(matriz) == 0)
 			return (0);
+		i++;
 	}
 	return (1);
 }
@@ -83,8 +82,6 @@ void	clean_stack(t_stack **stack_a)
 		{
 			temp = *stack_a;
 			*stack_a = (*stack_a)->next;
-			free(temp->number);
-			free(temp->index);
 			free(temp);
 		}
 	}

@@ -6,18 +6,18 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:20 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/03 10:25:24 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 13:37:42 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap_elemets(t_stack **stack)
+void	swap_element(t_stack **stack)
 {
 	t_stack *temp;
 
 	temp = *stack;
-	if(*stack == NULL || ft_lstsize(*stack) == 1)
+	if(*stack == NULL || ft_stacksize(*stack) == 1)
 		return ;
 	*stack = (*stack)->next;
 	temp->next = (*stack)->next;

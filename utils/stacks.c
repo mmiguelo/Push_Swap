@@ -6,17 +6,17 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:54:51 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/03 12:23:38 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 14:10:59 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*ft_stacknew(int *number, int i)
+t_stack	*ft_stacknew(long number, int i)
 {
 	t_stack	*new;
 
-	new = (t_list *)malloc(sizeof(t_stack));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->number = number;
@@ -42,7 +42,7 @@ int	ft_stacksize(t_stack *stack_a)
 	return (i);
 }
 
-t_stack	*ft_stacklast(t_list *stack_a)
+t_stack	*ft_stacklast(t_stack *stack_a)
 {
 	t_stack	*last;
 	t_stack	*temp;
@@ -67,6 +67,6 @@ void	stack_add_back(t_stack **stack_a, t_stack *new)
 		*stack_a = new;
 		return ;
 	}
-	temp = ft_lstlast(*stack_a);
+	temp = ft_stacklast(*stack_a);
 	temp->next = new;
 }
