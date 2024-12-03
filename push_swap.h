@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/03 09:56:32 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:39:43 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ typedef struct s_stack
 
 void		fill_list(char **matriz, t_stack **stack_a);
 void		stack_add_back(t_stack **stack_a, t_stack *new);
-t_stack		*ft_lstnew(int *number, int i);
-t_stack		*ft_lstlast(t_stack *stack_a);
-int			ft_lstsize(t_stack *stack_a);
+t_stack		*ft_stacknew(int *number, int i);
+t_stack		*ft_stacklast(t_stack *stack_a);
+int			ft_stacksize(t_stack *stack_a);
 
 /*=============================================================================#
 #                               CHECKERS                                       #
@@ -38,7 +38,7 @@ int			ft_lstsize(t_stack *stack_a);
 
 int			ft_strisnum(char *str);
 int			check_repeat(char **matriz);
-int			check_errors(char *matriz, long nbr, t_stack **stack_a);
+int			check_errors(char **matriz, long nbr);
 int			check_limits(char *matriz, long nbr, t_stack **stack_a);
 
 /*=============================================================================#

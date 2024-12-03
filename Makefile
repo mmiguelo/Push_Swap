@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/11/27 12:28:51 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/03 12:17:45 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,19 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -g
 RM = -rm -f
-LIBFT = libft/libft.a
+LIBFT = my_libft/libft.a
 
 #==============================================================================#
 #                                    FILES                                     #
 #==============================================================================#
 
-SRCS = 
+SRCS	= utils/parsing_utils.c
+SRCS	+= utils/parsing.c
+SRCS	+= utils/stacks.c
+SRCS	+= commands/swap.c
+SRCS	+= commands/push.c
+SRCS	+= commands/rotate.c
+SRCS	+= commands/reverse_rotate.c
 
 OBJS = $(SRCS:%.c=%.o)
 
@@ -36,17 +42,17 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(LIBFT):
-	@$(MAKE) -C ./libft
+	@$(MAKE) -C ./my_libft
 
 $(NAME): $(OBJS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
-	@$(MAKE) clean -C ./libft
+	@$(MAKE) clean -C ./my_libft
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@$(MAKE) fclean -C ./libft
+	@$(MAKE) fclean -C ./my_libft
 	@$(RM) $(NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:20 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/03 09:54:45 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 10:25:24 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ void	swap_elemets(t_stack **stack)
 {
 	t_stack *temp;
 
-	temp = stack;
+	temp = *stack;
 	if(*stack == NULL || ft_lstsize(*stack) == 1)
 		return ;
-	stack = *0x2;
-	0x1->next = *0x2->next;
-	*0x2->next = temp;
-	
+	*stack = (*stack)->next;
+	temp->next = (*stack)->next;
+	(*stack)->next = temp;
 }
 
 void	sa(t_stack **stack_a)

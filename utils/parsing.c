@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 13:49:40 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:39:31 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	check_repeat(char **matriz)
 	return (1);
 }
 
-int	check_errors(char **matriz, long nbr, t_stack **stack_a)
+int	check_errors(char **matriz, long nbr)
 {
 	int		i;
 

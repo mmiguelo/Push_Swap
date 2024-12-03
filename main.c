@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/02 15:17:46 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:40:00 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	fill_list(char **matriz, t_stack **stack_a)
 	while (matriz[i])
 	{
 		nbr = ft_atol(matriz[i]);
-		if (check_errors(matriz, nbr, stack_a) == 0)
+		if (check_errors(matriz, nbr) == 0)
 		{
 			write(1, "Error\n", 6);
 			handle_error(matriz, stack_a);
