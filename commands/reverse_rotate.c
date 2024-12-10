@@ -6,14 +6,23 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:30 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/09 14:14:57 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/10 15:41:10 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 void	reverse_rotate_element(t_stack **stack)
 {
-	
+	t_stack	*temp;
+
+	if (*stack == NULL || ft_stacksize(*stack) == 1)
+		return ;
+	temp = ft_stacklast(*stack);
+	temp->prev->next = NULL;
+	temp->prev = NULL;
+	(*stack)->prev = temp;
+	temp->next = (*stack);
+	*stack = temp;
 }
 
 void	rra(t_stack **stack_a)
