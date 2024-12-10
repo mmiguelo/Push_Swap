@@ -6,17 +6,9 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/09 11:34:30 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:26:51 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* 		fazer um atoi
-			no atoi, verificar se sao maiores que INT_MAX
-				se for maior, retornar ERROR and \n
-		verificar se tem numeros repetidos
-			se sim, retornar ERROR e \n
-		verificar se estao ordenados
-			se sim retornar 0 */
 
 #include "../push_swap.h"
 

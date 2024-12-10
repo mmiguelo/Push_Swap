@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/09 12:20:24 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:30:01 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	show_nodes(t_stack **a)
 	}
 }
 
-void	fill_list(char **matriz, t_stack **stack_a)
+void	fill_list(char **matriz, t_stack **stack)
 {
 	int		i;
 	long	nbr;
@@ -41,9 +41,9 @@ void	fill_list(char **matriz, t_stack **stack_a)
 		if (check_errors(matriz, nbr) == 0)
 		{
 			write(1, "Error\n", 6);
-			handle_error(matriz, stack_a);
+			handle_error(matriz, stack);
 		}
-		stack_add_back(stack_a, ft_stacknew(nbr, i));
+		stack_add_back(stack, ft_stacknew(nbr, i));
 		i++;
 	}
 }
@@ -75,3 +75,6 @@ int	main(int ac, char **av)
 /* 	printf("------stack_b-----\n");
 	show_nodes(&stack_b); */
 }
+//proximos passos:
+//
+//passar para os indexes -> e os números forem [50, 20, 10, 40], os índices ordenados seriam [3, 1, 0, 2]

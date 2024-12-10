@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:54:51 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/09 12:09:02 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:29:18 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ t_stack	*ft_stacknew(long number, int i)
 	return (new);
 }
 
-int	ft_stacksize(t_stack *stack_a)
+int	ft_stacksize(t_stack *stack)
 {
 	int		i;
 	t_stack	*temp;
 
-	if (!stack_a)
+	if (!stack)
 		return (0);
 	i = 0;
-	temp = stack_a;
+	temp = stack;
 	while (temp)
 	{
 		i++;
@@ -43,32 +43,32 @@ int	ft_stacksize(t_stack *stack_a)
 	return (i);
 }
 
-t_stack	*ft_stacklast(t_stack *stack_a)
+t_stack	*ft_stacklast(t_stack *stack)
 {
 	t_stack	*last;
 	t_stack	*temp;
 
-	if (!stack_a)
+	if (!stack)
 		return (NULL);
-	temp = stack_a;
+	temp = stack;
 	while (temp->next != NULL)
 		temp = temp->next;
 	last = temp;
 	return (last);
 }
 
-void	stack_add_back(t_stack **stack_a, t_stack *new)
+void	stack_add_back(t_stack **stack, t_stack *new)
 {
 	t_stack	*temp;
 
 	if (!new)
 		return ;
-	if (!*stack_a)
+	if (!*stack)
 	{
-		*stack_a = new;
+		*stack = new;
 		return ;
 	}
-	temp = ft_stacklast(*stack_a);
+	temp = ft_stacklast(*stack);
 	new->prev = temp;
 	temp->next = new;
 }
