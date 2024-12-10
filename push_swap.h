@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/10 16:29:27 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/10 16:34:18 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,11 @@ void		push_element_a(t_stack **stack_a, t_stack **stack_b);
 void		push_element_b(t_stack **stack_a, t_stack **stack_b);
 void		pa(t_stack **stack_a, t_stack **stack_b);
 void		pb(t_stack **stack_a, t_stack **stack_b);
+void		rotate_element(t_stack **stack);
 void		ra(t_stack **stack_a);
 void		rb(t_stack **stack_b);
 void		rr(t_stack **stack_a, t_stack **stack_b);
+void		reverse_rotate_element(t_stack **stack);
 void		rra(t_stack **stack_a);
 void		rrb(t_stack **stack_b);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
