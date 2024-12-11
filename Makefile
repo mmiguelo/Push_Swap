@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/11 10:34:47 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/11 12:36:55 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,8 @@ SRCS	+= utils/stack_utils.c
 SRCS	+= commands/sort.c
 SRCS	+= commands/swap.c
 SRCS	+= commands/push.c
-#SRCS	+= commands/rotate.c
-#SRCS	+= commands/reverse_rotate.c
+SRCS	+= commands/rotate.c
+SRCS	+= commands/reverse_rotate.c
 
 OBJS = $(SRCS:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/11 12:17:37 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:29:53 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,17 @@ t_stack	*get_min_in_stack(t_stack *stack)
 	return (min);
 }
 
-void	sort_n2(t_stack *stack, int length)
+void	sort_n2(t_stack *stack)
 {
-	if (length == 1)
-		return ;
-	if (stack->number > stack->next->number)
+	if (stack && stack->next && stack->number > stack->next->number)
 		sa(&stack);
-	return ;
 }
 
 void	sort_n3(t_stack **stack, int length)
 {
 	if (length != 3)
-		return (sort_n2(*stack, length));
-	if (is_sorted(*stack))
+		return (sort_n2(*stack));
+	if (check_sorted(*stack))
 		return ;
 	if ((*stack)->number > (*stack)->next->number && (*stack)->number
 		> (*stack)->next->next->number)
@@ -73,7 +70,7 @@ void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index)
 		pa(stack_b, stack_a);
 		return ;
 	}
-	i = get_min(*stack_a, &min, 'c', index);
+	i = get_min_in_stack(*stack_a);
 	if (i < (ft_lstsize(*stack_a) / 2))
 	{
 		while (i--)

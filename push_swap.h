@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/11 11:13:04 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:36:15 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,15 @@ void		reverse_rotate_element(t_stack **stack);
 void		rra(t_stack **stack_a);
 void		rrb(t_stack **stack_b);
 void		rrr(t_stack **stack_a, t_stack **stack_b);
+
+/*=============================================================================#
+#                                  SORTS                                       #
+#=============================================================================*/
+
+void		sort_n2(t_stack *stack);
+void		sort_n3(t_stack **stack, int length);
+void		sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index);
+void		sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length);
+
 
 #endif
