@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 16:07:31 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/03 15:08:35 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:13:55 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,36 @@ int	ft_strisnum(char *str)
 		i++;
 	}
 	return (1);
+}
+
+void	clean_matriz(char **matriz)
+{
+	int	i;
+
+	if (*matriz)
+	{
+		i = 0;
+		while (matriz[i])
+		{
+			free(matriz[i]);
+			i++;
+		}
+	}
+	free(matriz);
+}
+
+void	clean_stack(t_stack **stack_a)
+{
+	t_stack	*temp;
+
+	if (*stack_a)
+	{
+		while (*stack_a)
+		{
+			temp = *stack_a;
+			*stack_a = (*stack_a)->next;
+			free(temp);
+		}
+	}
+	free(stack_a);
 }

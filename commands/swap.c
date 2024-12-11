@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:20 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/09 12:23:03 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:15:00 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	swap_element(t_stack **stack)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack;
-	if(*stack == NULL || ft_stacksize(*stack) == 1)
+	if (*stack == NULL || ft_stacksize(*stack) == 1)
 		return ;
 	*stack = (*stack)->next;
 	(*stack)->prev = NULL;

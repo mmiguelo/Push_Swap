@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/03 15:59:55 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/11 10:34:47 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRCS	= main.c
 SRCS	+= utils/parsing_utils.c
 SRCS	+= utils/parsing.c
 SRCS	+= utils/stacks.c
+SRCS	+= utils/stack_utils.c
+SRCS	+= commands/sort.c
 SRCS	+= commands/swap.c
 SRCS	+= commands/push.c
 #SRCS	+= commands/rotate.c

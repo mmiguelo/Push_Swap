@@ -6,13 +6,13 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/10 16:30:01 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:17:11 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	show_nodes(t_stack **a)
+void	show_nodes(t_stack **a)
 {
 	t_stack	*temp;
 
@@ -52,10 +52,10 @@ int	main(int ac, char **av)
 {
 	char	**mtr;
 	t_stack	*stack_a;
-	//t_stack	*stack_b;
-	
+	t_stack	*stack_b;
+
 	stack_a = NULL;
-	//stack_b = NULL;
+	stack_b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (0);
 	else if (ac == 2)
@@ -63,18 +63,7 @@ int	main(int ac, char **av)
 	else
 		mtr = av + 1;
 	fill_list(mtr, &stack_a);
-	printf("------stack_a-----\n");
-	show_nodes(&stack_a);
-/* 	pb(&stack_a, &stack_b);
-	show_nodes(&stack_a);
-	printf("------stack_b-----\n");
-	show_nodes(&stack_b); */
-	sa(&stack_a);
-	printf("------stack_a-----\n");
-	show_nodes(&stack_a);
-/* 	printf("------stack_b-----\n");
-	show_nodes(&stack_b); */
+	if (check_sorted(stack_a) == 0)
+		ft_printf("Nao esta ordenada\n");
+	printf("min is = %i", get_min_in_stack(stack_a)->number);
 }
-//proximos passos:
-//
-//passar para os indexes -> e os números forem [50, 20, 10, 40], os índices ordenados seriam [3, 1, 0, 2]

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:22:12 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/09 14:12:08 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:14:32 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	push_element_a(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack_b;
-	if(*stack_b == NULL)
+	if (*stack_b == NULL)
 		return ;
 	*stack_b = (*stack_b)->next;
 	if (*stack_b)
@@ -30,10 +30,10 @@ void	push_element_a(t_stack **stack_a, t_stack **stack_b)
 
 void	push_element_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = *stack_a;
-	if(*stack_a == NULL)
+	if (*stack_a == NULL)
 		return ;
 	*stack_a = (*stack_a)->next;
 	if (*stack_a)

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/10 16:26:51 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 12:16:37 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,38 +48,6 @@ int	check_errors(char **matriz, long nbr)
 	return (1);
 }
 
-void	clean_matriz(char **matriz)
-{
-	int	i;
-
-	if (*matriz)
-	{
-		i = 0;
-		while (matriz[i])
-		{
-			free(matriz[i]);
-			i++;
-		}
-	}
-	free(matriz);
-}
-
-void	clean_stack(t_stack **stack_a)
-{
-	t_stack	*temp;
-
-	if (*stack_a)
-	{
-		while (*stack_a)
-		{
-			temp = *stack_a;
-			*stack_a = (*stack_a)->next;
-			free(temp);
-		}
-	}
-	free(stack_a);
-}
-
 void	handle_error(char **matriz, t_stack **stack_a)
 {
 	if (matriz)
@@ -87,4 +55,21 @@ void	handle_error(char **matriz, t_stack **stack_a)
 	if (stack_a)
 		clean_stack(stack_a);
 	exit (1);
+}
+
+int	check_sorted(t_stack *stack)
+{
+	t_stack	*temp;
+
+	temp = stack;
+	if (ft_stacksize(stack) > 1)
+	{
+		while (temp->next)
+		{
+			if (temp->number > temp->next->number)
+				return (0);
+			temp = temp->next;
+		}
+	}
+	return (1);
 }

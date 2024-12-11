@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/10 16:34:18 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:13:04 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void		stack_add_back(t_stack **stack, t_stack *new);
 t_stack		*ft_stacknew(long number, int i);
 t_stack		*ft_stacklast(t_stack *stack);
 int			ft_stacksize(t_stack *stack);
+t_stack		*get_min_in_stack(t_stack *stack);
 
 /*=============================================================================#
 #                               CHECKERS                                       #
@@ -41,6 +42,7 @@ int			ft_strisnum(char *str);
 int			check_repeat(char **matriz);
 int			check_errors(char **matriz, long nbr);
 int			check_limits(char *matriz, long nbr, t_stack **stack_a);
+int			check_sorted(t_stack *stack);
 
 /*=============================================================================#
 #                               CLEANING                                       #
