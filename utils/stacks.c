@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:54:51 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/10 16:29:18 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:29:26 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*ft_stacknew(long number, int i)
 	if (!new)
 		return (NULL);
 	new->number = number;
-	new->index = i;
+	new->index = NULL;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/11 12:29:53 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/12 11:35:51 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ void	sort_n2(t_stack *stack)
 void	sort_n3(t_stack **stack, int length)
 {
 	if (length != 3)
-		return (sort_n2(*stack));
+	{
+		if (*stack && (*stack)->next \
+		&& (*stack)->number > (*stack)->next->number)
+			sa(stack);
+	}
 	if (check_sorted(*stack))
 		return ;
 	if ((*stack)->number > (*stack)->next->number && (*stack)->number
