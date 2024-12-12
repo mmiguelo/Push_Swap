@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/12 11:35:51 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:42:26 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,32 @@ t_stack	*get_min_in_stack(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	temp = stack;
-	min = stack;
+	min = NULL;
 	while (temp)
 	{
-		if (temp->number < min->number)
+		if ((temp->index == -1) && (!min || temp->number < min->number))
 			min = temp;
 		temp = temp->next;
 	}
 	return (min);
 }
 
-void	sort_n2(t_stack *stack)
+void	add_index_list(t_stack *stack)
 {
-	if (stack && stack->next && stack->number > stack->next->number)
-		sa(&stack);
+	t_stack *temp;
+	int		i;
+	int total_nodes;
+
+	total_nodes = ft_stacksize(stack);
+	i = 0;
+	while (i < total_nodes)
+	{
+		temp = get_min_in_stack(stack);
+		if (!temp)
+			break;
+		temp->index = i;
+		i++;
+	}
 }
 
 void	sort_n3(t_stack **stack, int length)

@@ -6,13 +6,13 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:54:51 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/12 11:29:26 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/12 12:56:15 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_stack	*ft_stacknew(long number, int i)
+t_stack	*ft_stacknew(long number)
 {
 	t_stack	*new;
 
@@ -20,7 +20,7 @@ t_stack	*ft_stacknew(long number, int i)
 	if (!new)
 		return (NULL);
 	new->number = number;
-	new->index = NULL;
+	new->index = -1;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

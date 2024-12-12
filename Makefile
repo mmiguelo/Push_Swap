@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/11 12:36:55 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/12 14:22:06 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,24 +42,29 @@ OBJS = $(SRCS:%.c=%.o)
 #                                    RULES                                     #
 #==============================================================================#
 
+$(VERBOSE).SILENT:
+
 all: $(NAME)
 
 $(LIBFT):
+	@echo "Building libft..."
 	@$(MAKE) -C ./my_libft
 
 $(NAME): $(OBJS) $(LIBFT)
+	@echo "Compiling $(NAME)..."
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	@echo "$(NAME) compiled sucessfully"
 
 clean:
+	@echo "Cleaning object files..."
 	@$(MAKE) clean -C ./my_libft
 	@$(RM) $(OBJS)
 
 fclean: clean
+	@echo "Cleaning $(NAME) and libft..."
 	@$(MAKE) fclean -C ./my_libft
 	@$(RM) $(NAME)
 
 re: fclean all
 
 PHONY: all clean fclean re
-
-
