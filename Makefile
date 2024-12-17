@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/16 16:00:20 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/17 16:34:21 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,21 +47,21 @@ $(VERBOSE).SILENT:
 all: $(NAME)
 
 $(LIBFT):
-	@echo "Building libft..."
+	echo "Building libft..."
 	@$(MAKE) -C ./my_libft
 
 $(NAME): $(OBJS) $(LIBFT)
-	@echo "Compiling $(NAME)..."
+	echo "Compiling $(NAME)..."
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	@echo "$(NAME) compiled sucessfully"
+	echo "$(NAME) compiled sucessfully"
 
 clean:
-	@echo "Cleaning object files..."
+	echo "Cleaning object files..."
 	@$(MAKE) clean -C ./my_libft
 	@$(RM) $(OBJS)
 
 fclean: clean
-	@echo "Cleaning $(NAME) and libft..."
+	echo "Cleaning $(NAME) and libft..."
 	@$(MAKE) fclean -C ./my_libft
 	@$(RM) $(NAME)
 

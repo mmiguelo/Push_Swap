@@ -6,29 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/17 15:31:29 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:16:13 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-void	add_index_list(t_stack *stack)
-{
-	t_stack *temp;
-	int		i;
-	int total_nodes;
-
-	total_nodes = ft_stacksize(stack);
-	i = 0;
-	while (i < total_nodes)
-	{
-		temp = get_min_in_stack(stack);
-		if (!temp)
-			break;
-		temp->index = i;
-		i++;
-	}
-}
 
 void	ft_sort_3(t_stack **stack_a, t_stack **stack_b)
 {
@@ -197,4 +179,33 @@ void	sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length)
 	if (length > 3)
 		return (ft_sort_5(stack_a, stack_b));
 	ft_sort_3(stack_a, stack_b);
+}
+
+void	sort_by_bits(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*head_a;
+	int		i;
+	int		j;
+	int		size;
+	int		max_bits;
+
+	i = 0;
+	head_a = *stack_a;
+	size = ft_stacksize(head_a);
+	max_bits = ft_get_max_bits(stack_a);
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j++ < size)
+		{
+			head_a = *stack_a;
+			if (((head_a->index >> i) & 1) == 1)
+				ft_ra(stack_a);
+			else
+				ft_pb(stack_a, stack_b);
+		}
+		while (*stack_b)
+			ft_pa(stack_a, stack_b);
+		i++;
+	}
 }

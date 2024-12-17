@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:26:29 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/17 14:32:45 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/17 17:22:58 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,15 @@ t_stack	*get_min_in_stack(t_stack *stack)
 	return (min);
 }
 
-/* int	ft_get_min(t_stack **stack)
+t_stack	*get_max_in_stack(t_stack *stack)
 {
-	int		min;
-	t_stack	*temp;
-
-	temp = *stack;
-	min = temp->number;
-	while (temp)
-	{
-		if (temp->number < min)
-			min = temp->number;
-		temp = temp->next;
-	}
-	return (min);min
-
-	temp = *stack;
+	t_stack *temp;
+	int max;
+	int max_bits;
+	
+	if (!stack)
+		return (NULL);
+	temp = stack;
 	max = temp->index;
 	max_bits = 0;
 	while (temp)
@@ -59,4 +52,22 @@ t_stack	*get_min_in_stack(t_stack *stack)
 		max_bits++;
 	}
 	return (max_bits);
-} */
+}
+
+void	add_index_list(t_stack *stack)
+{
+	t_stack *temp;
+	int		i;
+	int total_nodes;
+
+	total_nodes = ft_stacksize(stack);
+	i = 0;
+	while (i < total_nodes)
+	{
+		temp = get_min_in_stack(stack);
+		if (!temp)
+			break;
+		temp->index = i;
+		i++;
+	}
+}
