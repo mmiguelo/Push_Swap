@@ -6,29 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/12 15:42:26 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:31:29 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-t_stack	*get_min_in_stack(t_stack *stack)
-{
-	t_stack	*temp;
-	t_stack	*min;
-
-	if (!stack)
-		return (NULL);
-	temp = stack;
-	min = NULL;
-	while (temp)
-	{
-		if ((temp->index == -1) && (!min || temp->number < min->number))
-			min = temp;
-		temp = temp->next;
-	}
-	return (min);
-}
 
 void	add_index_list(t_stack *stack)
 {
@@ -48,7 +30,36 @@ void	add_index_list(t_stack *stack)
 	}
 }
 
-void	sort_n3(t_stack **stack, int length)
+void	ft_sort_3(t_stack **stack_a, t_stack **stack_b)
+{
+	int		top;
+	t_stack	*mid;
+
+	mid = (*stack_a)->next;
+	top = (mid->next)->number;
+	if (check_sorted(*stack_a))
+		mid = (*stack_a)->next;
+	else if (top < mid->number && mid->number < (*stack_a)->number)
+	{
+		sa(stack_a);
+		rra(stack_a);
+	}
+	else if (top < (*stack_a)->number && (*stack_a)->number > mid->number)
+		ra(stack_a);
+	else if (mid->number > top && top < (*stack_a)->number)
+		rra(stack_a);
+	else if (mid->number > (*stack_a)->number && (*stack_a)->number < top)
+	{
+		sa(stack_a);
+		ra(stack_a);
+	}
+	else if ((*stack_a)->number < top && top > mid->number)
+		sa(stack_a);
+	while (*stack_b)
+		pa(stack_a, stack_b);
+}
+
+/* void	sort_n3(t_stack **stack, int length)
 {
 	if (length != 3)
 	{
@@ -71,9 +82,65 @@ void	sort_n3(t_stack **stack, int length)
 	}
 	sa(stack);
 	return (sort_n3(stack, length));
+} */
+
+void	ft_sort_4(t_stack **stack_a, t_stack **stack_b)
+{
+	int		min_nbr;
+	int		i;
+	t_stack	*temp;
+
+	min_nbr = get_min_in_stack(*stack_a)->number;
+	i = 0;
+	temp = *stack_a;
+	while (temp->number != min_nbr)
+	{
+		i++;
+		temp = temp->next;
+	}
+	if (i <= 2)
+	{
+		while ((*stack_a)->number != min_nbr)
+			ra(stack_a);
+	}
+	else
+	{
+		while ((*stack_a)->number != min_nbr)
+			rra(stack_a);
+	}
+	pb(stack_a, stack_b);
+	ft_sort_3(stack_a, stack_b);
 }
 
-void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index)
+void	ft_sort_5(t_stack **stack_a, t_stack **stack_b)
+{
+	int		min_nbr;
+	int		i;
+	t_stack	*temp;
+
+	min_nbr = (get_min_in_stack(*stack_a))->number;
+	i = 0;
+	temp = *stack_a;
+	while (temp->number != min_nbr)
+	{
+		i++;
+		temp = temp->next;
+	}
+	if (i <= 3)
+	{
+		while ((*stack_a)->number != min_nbr)
+			ra(stack_a);
+	}
+	else
+	{
+		while ((*stack_a)->number != min_nbr)
+			rra(stack_a);
+	}
+	pb(stack_a, stack_b);
+	ft_sort_4(stack_a, stack_b);
+}
+
+/* void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index)
 {
 	t_stack	*min;
 	int		i;
@@ -81,13 +148,13 @@ void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index)
 	if (length <= 3)
 	{
 		sort_n3(stack_a, length);
-		if (ft_lstsize(*stack_b) == 2)
+		if (ft_stacksize(*stack_b) == 2)
 			pa(stack_b, stack_a);
 		pa(stack_b, stack_a);
 		return ;
 	}
 	i = get_min_in_stack(*stack_a);
-	if (i < (ft_lstsize(*stack_a) / 2))
+	if (i < (ft_stacksize(*stack_a) / 2))
 	{
 		while (i--)
 			ra(stack_a);
@@ -95,16 +162,39 @@ void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index)
 	}
 	else
 	{
-		while (ft_lstsize(*stack_a) - (i++))
+		while (ft_stacksize(*stack_a) - (i++))
 			rra(stack_a);
 		pb(stack_a, stack_b);
 	}
 	return (sort_n5(stack_a, stack_b, --length, ++index));
-}
+} */
+
+/* void	sort_n5(t_stack **stack_a, t_stack **stack_b,	int	list_size)
+{
+	int	i;
+	if (3 == list_size)
+		sort_n3(stack_a, list_size);
+	add_index_list(*stack_a); // adiconar indexes ao stack_a
+	i = get_min_in_stack(*stack_a)->index; // econtrar o index do min de a
+	if (i < (ft_stacksize(*stack_a) / 2))
+	{
+		while (i--)
+			ra(stack_a);
+		pb(stack_a, stack_b);
+	}
+	else
+	{
+		while (ft_stacksize(*stack_a) - (i++))
+			rra(stack_a);
+		pb(stack_a, stack_b);
+	}
+	return (sort_n5(stack_a, stack_b, --list_size));
+	
+} */
 
 void	sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length)
 {
 	if (length > 3)
-		return (sort_n5(stack_a, stack_b, length, 0));
-	sort_n3(stack_a, length);
+		return (ft_sort_5(stack_a, stack_b));
+	ft_sort_3(stack_a, stack_b);
 }

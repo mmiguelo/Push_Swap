@@ -6,13 +6,13 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/12 15:42:06 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:32:37 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* void	show_nodes(t_stack **a)
+void	show_nodes(t_stack **a)
 {
 	t_stack	*temp;
 
@@ -22,9 +22,7 @@
 		printf("value: %i, index = %i\n", temp->number, temp->index);
 		temp = temp->next;
 	}
-} */
-
-
+}
 
 void	fill_list(char **matriz, t_stack **stack)
 {
@@ -54,10 +52,10 @@ int	main(int ac, char **av)
 {
 	char	**mtr;
 	t_stack	*stack_a;
-	//t_stack	*stack_b;
-
-	stack_a = malloc(sizeof(t_stack));
-	//stack_b = malloc(sizeof(t_stack));
+	t_stack	*stack_b;
+	
+	stack_a = NULL;
+	stack_b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
 		return (0);
 	else if (ac == 2)
@@ -65,9 +63,9 @@ int	main(int ac, char **av)
 	else
 		mtr = av + 1;
 	fill_list(mtr, &stack_a);
-	if (check_sorted(stack_a) == 0)
-		ft_printf("Nao esta ordenada\n");
 	show_nodes(&stack_a);
+	if (check_sorted(stack_a) == 0)
+		sort_small_stacks(&stack_a, &stack_b, ft_stacksize(stack_a));
 	printf("\n\nAfter index sort\n\n");
 	add_index_list(stack_a);
 	show_nodes(&stack_a);

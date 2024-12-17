@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/12 12:56:01 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/17 14:59:53 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 
 void	sort_n2(t_stack *stack);
 void	sort_n3(t_stack **stack, int length);
-void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index);
+void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length);
 void	sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length);
 void	add_index_list(t_stack *stack);
 
