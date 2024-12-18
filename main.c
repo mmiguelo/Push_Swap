@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 16:42:11 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:25:35 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int ac, char **av)
 	char	**mtr;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
