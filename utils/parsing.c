@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 12:02:47 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 14:06:00 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ int	check_errors(char **matriz, long nbr)
 		i++;
 	}
 	return (1);
-}
-
-void	handle_error(char **matriz, t_stack **stack_a)
-{
-	if (matriz)
-		clean_matriz(matriz);
-	if (stack_a)
-		clean_stack(stack_a);
-	exit (1);
 }
 
 int	check_sorted(t_stack *stack)

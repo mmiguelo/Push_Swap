@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 16:07:31 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 12:02:43 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:03:08 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strisnum(char *str)
 	int	i;
 
 	i = 0;
-	if (str[0] == '-' || str[0] == '+')
+	if ((str[0] == '-' || str[0] == '+') && str[1])
 		i++;
 	while (str[i])
 	{
@@ -28,20 +28,24 @@ int	ft_strisnum(char *str)
 	return (1);
 }
 
-void	clean_matriz(char **matriz)
+void	clean_matriz(char **matriz, int ac)
 {
 	int	i;
 
-	if (*matriz)
+	i = 0;
+	if (ac == 2)
 	{
-		i = 0;
 		while (matriz[i])
+			i++;
+		while (i >= 0)
 		{
 			free(matriz[i]);
-			i++;
+			i--;
 		}
+		free(matriz);
 	}
-	free(matriz);
+	else
+		return ;
 }
 
 void	clean_stack(t_stack **stack_a)
@@ -52,10 +56,17 @@ void	clean_stack(t_stack **stack_a)
 	{
 		while (*stack_a)
 		{
-			temp = *stack_a;
-			*stack_a = (*stack_a)->next;
-			free(temp);
+			temp = (*stack_a)->next;
+			free(*stack_a);
+			*stack_a = temp;
 		}
 	}
-	free(stack_a);
+}
+
+void	handle_errors(t_stack **stack_a, char **matriz, int ac)
+{
+	if (matriz)
+		clean_matriz(matriz, ac);
+	if (stack_a)
+		clean_stack(stack_a);
 }

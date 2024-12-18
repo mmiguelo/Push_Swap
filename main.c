@@ -6,25 +6,13 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 11:36:53 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:42:11 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	show_nodes(t_stack **a)
-{
-	t_stack	*temp;
-
-	temp = *a;
-	while (temp)
-	{
-		printf("value: %i, index = %i\n", temp->number, temp->index);
-		temp = temp->next;
-	}
-}
-
-void	fill_list(char **matriz, t_stack **stack)
+void	fill_list(char **matriz, t_stack **stack, int ac)
 {
 	int		i;
 	long	nbr;
@@ -34,6 +22,7 @@ void	fill_list(char **matriz, t_stack **stack)
 	{
 		if ((ft_strisnum(matriz[i]) == 0) || (ft_strlen(matriz[i]) > 11))
 		{
+			handle_errors(stack, matriz, ac);
 			ft_printf("Error\n");
 			exit (1);
 		}
@@ -41,11 +30,13 @@ void	fill_list(char **matriz, t_stack **stack)
 		if (check_errors(matriz, nbr) == 0)
 		{
 			ft_printf("Error\n");
-			handle_error(matriz, stack);
+			handle_errors(stack, matriz, ac);
+			exit (1);
 		}
 		stack_add_back(stack, ft_stacknew(nbr));
 		i++;
 	}
+	clean_matriz(matriz, ac);
 }
 
 int	main(int ac, char **av)
@@ -62,8 +53,7 @@ int	main(int ac, char **av)
 		mtr = ft_split(av[1], ' ');
 	else
 		mtr = av + 1;
-	fill_list(mtr, &stack_a);
-	show_nodes(&stack_a);
+	fill_list(mtr, &stack_a, ac);
 	add_index_list(stack_a);
 	if (check_sorted(stack_a) == 0)
 	{
@@ -72,7 +62,5 @@ int	main(int ac, char **av)
 		else
 			sort_by_bits(&stack_a, &stack_b);
 	}
-	printf("\n\nAfter index sort\n\n");
-	show_nodes(&stack_a);
-	
+	clean_stack(&stack_a);
 }

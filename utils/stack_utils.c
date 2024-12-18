@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:26:29 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 12:02:50 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:04:33 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,24 @@ t_stack	*get_min_in_stack(t_stack *stack)
 	{
 		if ((temp->index == -1) && (!min || temp->number < min->number))
 			min = temp;
+		temp = temp->next;
+	}
+	return (min);
+}
+
+int	get_next_min(t_stack *stack)
+{
+	t_stack	*temp;
+	int	min;
+
+	if (!stack)
+		return (0);
+	temp = stack;
+	min = stack->number;
+	while (temp)
+	{
+		if (min > temp->number)
+			min = temp->number;
 		temp = temp->next;
 	}
 	return (min);

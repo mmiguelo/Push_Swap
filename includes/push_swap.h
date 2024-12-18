@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 11:55:12 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:41:47 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,13 @@ typedef struct s_stack
 #                                LISTS                                         #
 #=============================================================================*/
 
-void	fill_list(char **matriz, t_stack **stack_a);
+void	fill_list(char **matriz, t_stack **stack_a, int ac);
 void	stack_add_back(t_stack **stack, t_stack *new);
 t_stack	*ft_stacknew(long number);
 t_stack	*ft_stacklast(t_stack *stack);
 int		ft_stacksize(t_stack *stack);
 t_stack	*get_min_in_stack(t_stack *stack);
+int		get_next_min(t_stack *stack);
 int		get_max_in_stack(t_stack *stack);
 
 /*=============================================================================#
@@ -49,9 +50,9 @@ int		check_sorted(t_stack *stack);
 #                               CLEANING                                       #
 #=============================================================================*/
 
-void	handle_error(char **matriz, t_stack **stack_a);
 void	clean_stack(t_stack **stack_a);
-void	clean_matriz(char **matriz);
+void	clean_matriz(char **matriz, int ac);
+void	handle_errors(t_stack **stack_a, char **matriz, int ac);
 
 /*=============================================================================#
 #                               COMMANDS                                       #

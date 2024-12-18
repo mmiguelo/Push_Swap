@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/18 12:09:31 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/18 15:43:12 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,4 +69,4 @@ fclean: clean
 
 re: fclean all
 
-.SILENT:
+#.SILENT:

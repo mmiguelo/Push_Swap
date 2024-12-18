@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 12:02:02 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 16:16:10 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,38 +41,13 @@ void	ft_sort_3(t_stack **stack_a, t_stack **stack_b)
 		pa(stack_a, stack_b);
 }
 
-/* void	sort_n3(t_stack **stack, int length)
-{
-	if (length != 3)
-	{
-		if (*stack && (*stack)->next \
-		&& (*stack)->number > (*stack)->next->number)
-			sa(stack);
-	}
-	if (check_sorted(*stack))
-		return ;
-	if ((*stack)->number > (*stack)->next->number && (*stack)->number
-		> (*stack)->next->next->number)
-	{
-		ra(stack);
-		return (sort_n3(stack, length));
-	}
-	if ((*stack)->next->number > (*stack)->next->next->number)
-	{
-		rra(stack);
-		return (sort_n3(stack, length));
-	}
-	sa(stack);
-	return (sort_n3(stack, length));
-} */
-
 void	ft_sort_4(t_stack **stack_a, t_stack **stack_b)
 {
 	int		min_nbr;
 	int		i;
 	t_stack	*temp;
 
-	min_nbr = get_min_in_stack(*stack_a)->number;
+	min_nbr = get_next_min(*stack_a);
 	i = 0;
 	temp = *stack_a;
 	while (temp->number != min_nbr)
@@ -80,7 +55,7 @@ void	ft_sort_4(t_stack **stack_a, t_stack **stack_b)
 		i++;
 		temp = temp->next;
 	}
-	if (i <= 2)
+	if (i < 2)
 	{
 		while ((*stack_a)->number != min_nbr)
 			ra(stack_a);
@@ -100,7 +75,7 @@ void	ft_sort_5(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 	t_stack	*temp;
 
-	min_nbr = (get_min_in_stack(*stack_a))->number;
+	min_nbr = get_next_min(*stack_a);
 	i = 0;
 	temp = *stack_a;
 	while (temp->number != min_nbr)
@@ -108,7 +83,7 @@ void	ft_sort_5(t_stack **stack_a, t_stack **stack_b)
 		i++;
 		temp = temp->next;
 	}
-	if (i <= 3)
+	if (i < 3)
 	{
 		while ((*stack_a)->number != min_nbr)
 			ra(stack_a);
@@ -122,65 +97,16 @@ void	ft_sort_5(t_stack **stack_a, t_stack **stack_b)
 	ft_sort_4(stack_a, stack_b);
 }
 
-/* void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length, int index)
-{
-	t_stack	*min;
-	int		i;
-
-	if (length <= 3)
-	{
-		sort_n3(stack_a, length);
-		if (ft_stacksize(*stack_b) == 2)
-			pa(stack_b, stack_a);
-		pa(stack_b, stack_a);
-		return ;
-	}
-	i = get_min_in_stack(*stack_a);
-	if (i < (ft_stacksize(*stack_a) / 2))
-	{
-		while (i--)
-			ra(stack_a);
-		pb(stack_a, stack_b);
-	}
-	else
-	{
-		while (ft_stacksize(*stack_a) - (i++))
-			rra(stack_a);
-		pb(stack_a, stack_b);
-	}
-	return (sort_n5(stack_a, stack_b, --length, ++index));
-} */
-
-/* void	sort_n5(t_stack **stack_a, t_stack **stack_b,	int	list_size)
-{
-	int	i;
-	if (3 == list_size)
-		sort_n3(stack_a, list_size);
-	add_index_list(*stack_a); // adiconar indexes ao stack_a
-	i = get_min_in_stack(*stack_a)->index; // econtrar o index do min de a
-	if (i < (ft_stacksize(*stack_a) / 2))
-	{
-		while (i--)
-			ra(stack_a);
-		pb(stack_a, stack_b);
-	}
-	else
-	{
-		while (ft_stacksize(*stack_a) - (i++))
-			rra(stack_a);
-		pb(stack_a, stack_b);
-	}
-	return (sort_n5(stack_a, stack_b, --list_size));
-	
-} */
-
 void	sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length)
 {
 	if (length == 5)
 		return (ft_sort_5(stack_a, stack_b));
 	else if (length == 4)
 		return (ft_sort_4(stack_a, stack_b));
-	ft_sort_3(stack_a, stack_b);
+	else if (length == 3)
+		ft_sort_3(stack_a, stack_b);
+	else if ((*stack_a)->number > (*stack_a)->next->number)
+		sa(stack_a);
 }
 
 void	sort_by_bits(t_stack **stack_a, t_stack **stack_b)
