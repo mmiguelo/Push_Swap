@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 11:30:56 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:02:02 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	ft_sort_3(t_stack **stack_a, t_stack **stack_b)
 {

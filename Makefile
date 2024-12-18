@@ -6,7 +6,7 @@
 #    By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 12:11:14 by mmiguelo          #+#    #+#              #
-#    Updated: 2024/12/17 16:34:21 by mmiguelo         ###   ########.fr        #
+#    Updated: 2024/12/18 12:09:31 by mmiguelo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,56 +15,58 @@
 #                                    NAMES                                     #
 #==============================================================================#
 
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -g
+INC = -I./includes
+VPATH = utils commands
+LIBFT = ./my_libft/libft.a
+RM = rm -rf
+
+COMMANDS = push reverse_rotate rotate sort swap
+UTILS = parsing_utils parsing stack_utils stacks
+
 NAME = push_swap
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -g
-RM = -rm -f
-LIBFT = my_libft/libft.a
 
 #==============================================================================#
 #                                    FILES                                     #
 #==============================================================================#
 
-SRCS	= main.c
-SRCS	+= utils/parsing_utils.c
-SRCS	+= utils/parsing.c
-SRCS	+= utils/stacks.c
-SRCS	+= utils/stack_utils.c
-SRCS	+= commands/sort.c
-SRCS	+= commands/swap.c
-SRCS	+= commands/push.c
-SRCS	+= commands/rotate.c
-SRCS	+= commands/reverse_rotate.c
-
-OBJS = $(SRCS:%.c=%.o)
+SRCS =	$(addsuffix .c, $(COMMANDS))
+SRCS +=	$(addsuffix .c, $(UTILS))
+SRCS +=	main.c
+	   
+OBJ_DIR = obj
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 #==============================================================================#
 #                                    RULES                                     #
 #==============================================================================#
 
-$(VERBOSE).SILENT:
-
 all: $(NAME)
 
 $(LIBFT):
-	echo "Building libft..."
-	@$(MAKE) -C ./my_libft
+	$(MAKE) -C ./my_libft
 
-$(NAME): $(OBJS) $(LIBFT)
-	echo "Compiling $(NAME)..."
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
-	echo "$(NAME) compiled sucessfully"
+$(OBJ_DIR):
+	mkdir -p obj
+
+$(OBJ_DIR)/%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ $(BONUS_INC)
+
+$(NAME): $(OBJ_DIR) $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
-	echo "Cleaning object files..."
-	@$(MAKE) clean -C ./my_libft
-	@$(RM) $(OBJS)
+	$(MAKE) clean -C ./my_libft
+	$(RM) $(OBJS)
 
 fclean: clean
-	echo "Cleaning $(NAME) and libft..."
-	@$(MAKE) fclean -C ./my_libft
-	@$(RM) $(NAME)
+	$(MAKE) fclean -C ./my_libft
+	$(RM) $(NAME) $(OBJ_DIR)
 
 re: fclean all
 
-PHONY: all clean fclean re
+.SILENT:

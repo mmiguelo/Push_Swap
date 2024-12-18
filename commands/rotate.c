@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:23 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/11 12:15:15 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:01:57 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	rotate_element(t_stack **stack)
 {

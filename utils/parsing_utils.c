@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 16:07:31 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/11 12:13:55 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:02:43 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	ft_strisnum(char *str)
 {

@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 10:46:40 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/11 12:16:37 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:02:47 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	check_repeat(char **matriz)
 {

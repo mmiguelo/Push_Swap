@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:26:29 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 11:22:28 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:02:50 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*get_min_in_stack(t_stack *stack)
 {

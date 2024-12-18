@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:23:20 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/16 17:45:42 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:02:10 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	swap_element(t_stack **stack)
 {

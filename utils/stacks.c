@@ -6,11 +6,11 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 13:54:51 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/12 12:56:15 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 12:02:53 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_stack	*ft_stacknew(long number)
 {
