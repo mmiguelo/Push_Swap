@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/17 15:32:37 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:36:53 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,15 @@ int	main(int ac, char **av)
 		mtr = av + 1;
 	fill_list(mtr, &stack_a);
 	show_nodes(&stack_a);
-	if (check_sorted(stack_a) == 0)
-		sort_small_stacks(&stack_a, &stack_b, ft_stacksize(stack_a));
-	printf("\n\nAfter index sort\n\n");
 	add_index_list(stack_a);
+	if (check_sorted(stack_a) == 0)
+	{
+		if (ft_stacksize(stack_a) <= 5)
+			sort_small_stacks(&stack_a, &stack_b, ft_stacksize(stack_a));
+		else
+			sort_by_bits(&stack_a, &stack_b);
+	}
+	printf("\n\nAfter index sort\n\n");
 	show_nodes(&stack_a);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:22:50 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/17 17:15:34 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:11:43 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ t_stack	*ft_stacknew(long number);
 t_stack	*ft_stacklast(t_stack *stack);
 int		ft_stacksize(t_stack *stack);
 t_stack	*get_min_in_stack(t_stack *stack);
+int		get_max_in_stack(t_stack *stack);
 
 /*=============================================================================#
 #                               CHECKERS                                       #
@@ -82,6 +83,6 @@ void	sort_n3(t_stack **stack, int length);
 void	sort_n5(t_stack **stack_a, t_stack **stack_b, int length);
 void	sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length);
 void	add_index_list(t_stack *stack);
-void	sort_by_bits(t_list **stack_a, t_list **stack_b);
+void	sort_by_bits(t_stack **stack_a, t_stack **stack_b);
 
 #endif

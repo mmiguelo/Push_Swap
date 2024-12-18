@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:34:53 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/17 17:16:13 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:30:56 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,8 +176,10 @@ void	ft_sort_5(t_stack **stack_a, t_stack **stack_b)
 
 void	sort_small_stacks(t_stack **stack_a, t_stack **stack_b, int length)
 {
-	if (length > 3)
+	if (length == 5)
 		return (ft_sort_5(stack_a, stack_b));
+	else if (length == 4)
+		return (ft_sort_4(stack_a, stack_b));
 	ft_sort_3(stack_a, stack_b);
 }
 
@@ -192,7 +194,7 @@ void	sort_by_bits(t_stack **stack_a, t_stack **stack_b)
 	i = 0;
 	head_a = *stack_a;
 	size = ft_stacksize(head_a);
-	max_bits = ft_get_max_bits(stack_a);
+	max_bits = get_max_in_stack(*stack_a);
 	while (i < max_bits)
 	{
 		j = 0;
@@ -200,12 +202,12 @@ void	sort_by_bits(t_stack **stack_a, t_stack **stack_b)
 		{
 			head_a = *stack_a;
 			if (((head_a->index >> i) & 1) == 1)
-				ft_ra(stack_a);
+				ra(stack_a);
 			else
-				ft_pb(stack_a, stack_b);
+				pb(stack_a, stack_b);
 		}
 		while (*stack_b)
-			ft_pa(stack_a, stack_b);
+			pa(stack_a, stack_b);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:26:29 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/17 17:22:58 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/18 11:22:28 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,12 @@ t_stack	*get_min_in_stack(t_stack *stack)
 	return (min);
 }
 
-t_stack	*get_max_in_stack(t_stack *stack)
+int	get_max_in_stack(t_stack *stack)
 {
 	t_stack *temp;
 	int max;
 	int max_bits;
-	
-	if (!stack)
-		return (NULL);
+
 	temp = stack;
 	max = temp->index;
 	max_bits = 0;
@@ -48,9 +46,7 @@ t_stack	*get_max_in_stack(t_stack *stack)
 		temp = temp->next;
 	}
 	while ((max >> max_bits) != 0)
-	{
 		max_bits++;
-	}
 	return (max_bits);
 }
 
