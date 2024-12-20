@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/18 17:25:35 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/20 11:42:45 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ void	fill_list(char **matriz, t_stack **stack, int ac)
 	long	nbr;
 
 	i = 0;
+	if (!check_repeat(matriz))
+	{
+		ft_printf("Error\n");
+		handle_errors(stack, matriz, ac);
+		exit (1);
+	}
 	while (matriz[i])
 	{
-		if ((ft_strisnum(matriz[i]) == 0) || (ft_strlen(matriz[i]) > 11))
-		{
-			handle_errors(stack, matriz, ac);
-			ft_printf("Error\n");
-			exit (1);
-		}
-		nbr = ft_atol(matriz[i]);
-		if (check_errors(matriz, nbr) == 0)
+		if (!ft_strisnum(matriz[i]) || ft_strlen(matriz[i]) > 11 ||\
+		 !(check_errors(matriz, (nbr = ft_atol(matriz[i])))))
 		{
 			ft_printf("Error\n");
 			handle_errors(stack, matriz, ac);
@@ -53,6 +53,7 @@ int	main(int ac, char **av)
 		mtr = ft_split(av[1], ' ');
 	else
 		mtr = av + 1;
+	
 	fill_list(mtr, &stack_a, ac);
 	add_index_list(stack_a);
 	if (check_sorted(stack_a) == 0)
