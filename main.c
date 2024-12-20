@@ -6,7 +6,7 @@
 /*   By: mmiguelo <mmiguelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:17:18 by mmiguelo          #+#    #+#             */
-/*   Updated: 2024/12/20 11:42:45 by mmiguelo         ###   ########.fr       */
+/*   Updated: 2024/12/20 12:24:32 by mmiguelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ void	fill_list(char **matriz, t_stack **stack, int ac)
 	}
 	while (matriz[i])
 	{
-		if (!ft_strisnum(matriz[i]) || ft_strlen(matriz[i]) > 11 ||\
-		 !(check_errors(matriz, (nbr = ft_atol(matriz[i])))))
+		nbr = ft_atol(matriz[i]);
+		if (!ft_strisnum(matriz[i]) || ft_strlen(matriz[i]) > 11 || \
+			!check_errors(matriz, nbr))
 		{
 			ft_printf("Error\n");
 			handle_errors(stack, matriz, ac);
@@ -53,7 +54,6 @@ int	main(int ac, char **av)
 		mtr = ft_split(av[1], ' ');
 	else
 		mtr = av + 1;
-	
 	fill_list(mtr, &stack_a, ac);
 	add_index_list(stack_a);
 	if (check_sorted(stack_a) == 0)
