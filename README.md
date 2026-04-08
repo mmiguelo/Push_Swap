@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![# PUSH_SWAP](https://github.com/mmiguelo/42-project-badges/blob/main/covers/cover-push_swap.png)
-
 # 🔄 push_swap
 
 **Sort a stack of integers using the fewest operations possible | 42 School Project**
